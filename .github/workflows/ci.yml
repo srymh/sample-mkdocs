@@ -1,0 +1,46 @@
+name: ci
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    # ワークフローのステップを定義します。
+    steps:
+      # リポジトリのコードをチェックアウト（取得）します。
+      - uses: actions/checkout@v4
+
+      # ユーザー名とメールアドレスを設定します。これは、後続のステップでGit操作を行うために必要です。
+      - name: Configure Git Credentials
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+
+      # Python環境をセットアップします。ここではPythonのバージョンを3.xに設定しています。
+      - uses: actions/setup-python@v5
+        with:
+          python-version: 3.x
+
+      # 現在の日付（UTC）を使用してキャッシュIDを生成し、それを環境変数に保存します。
+      - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV
+
+      # キャッシュを設定します。キーはmkdocs-material-にキャッシュIDを追加したもので、キャッシュのパスは.cacheです。
+      - uses: actions/cache@v4
+        with:
+          key: mkdocs-material-${{ env.cache_id }}
+          path: .cache
+          restore-keys: |
+            mkdocs-material-
+
+      # `pip install mkdocs-material` コマンドを実行して、mkdocs-materialをインストールします。
+      - run: pip install mkdocs-material
+
+      # `mkdocs gh-deploy --force` コマンドを実行して、ドキュメンテーションをGitHub Pagesにデプロイします。
+      - run: mkdocs gh-deploy --force
