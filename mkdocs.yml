@@ -125,18 +125,18 @@ theme:
 plugins:
   - search
 
-  # https://squidfunk.github.io/mkdocs-material/setup/adding-a-git-repository/#document-dates
-  # git-revision-date-localized プラグインは、各ページの下部に最終更新日とドキュメントの作成日を追加するためのサポートを追加します。
-  - git-revision-date-localized:
-      enabled: true
-      type: date # 表示する日付の形式: date, datetime, iso_date, iso_datetime, timeago
-      enable_creation_date: true
+  # # https://squidfunk.github.io/mkdocs-material/setup/adding-a-git-repository/#document-dates
+  # # git-revision-date-localized プラグインは、各ページの下部に最終更新日とドキュメントの作成日を追加するためのサポートを追加します。
+  # - git-revision-date-localized:
+  #     enabled: true
+  #     type: date # 表示する日付の形式: date, datetime, iso_date, iso_datetime, timeago
+  #     enable_creation_date: true
 
-  # https://squidfunk.github.io/mkdocs-material/setup/adding-a-git-repository/#document-contributors
-  # git-committers2 プラグインは、すべてのコントリビューターの GitHub アバターをレンダリングし、各ページの下部にある GitHub プロファイルにリンクします。
-  - git-committers:
-      repository: srymh/sample-mkdocs
-      branch: main
+  # # https://squidfunk.github.io/mkdocs-material/setup/adding-a-git-repository/#document-contributors
+  # # git-committers2 プラグインは、すべてのコントリビューターの GitHub アバターをレンダリングし、各ページの下部にある GitHub プロファイルにリンクします。
+  # - git-committers:
+  #     repository: srymh/sample-mkdocs
+  #     branch: main
 
   # - social
   # - privacy
