@@ -2,7 +2,7 @@
 
 <div class="grid cards" markdown>
 
-- [基本](./0.md)
+- [デモページ](./0-デモページ.md)
 - [Front Matter](./1-front_matter.md)
 
 </div>
