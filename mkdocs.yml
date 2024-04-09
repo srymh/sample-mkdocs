@@ -1,17 +1,35 @@
 site_name: My Docs
+site_url: https://srymh.github.io/sample-mkdocs/
+
+# https://squidfunk.github.io/mkdocs-material/setup/adding-a-git-repository/#repository
+# プロジェクトのリポジトリへのリンクをドキュメントの一部として表示する
+repo_url: https://github.com/srymh/sample-mkdocs
+
+# https://squidfunk.github.io/mkdocs-material/setup/adding-a-git-repository/#repository-name
+# MkDocs は、URL を調べてソース プロバイダーを推測し、リポジトリ名を自動的に設定しようとします。名前をカスタマイズする場合
+repo_name: sample-mkdocs
+
+# https://squidfunk.github.io/mkdocs-material/setup/adding-a-git-repository/#code-actions
+# リポジトリの URL が有効な GitHub、GitLab、または Bitbucket リポジトリを指している場合、MkDocs には edit_uri という設定があり、ドキュメントがホストされているサブフォルダーに解決されます。
+edit_uri: edit/main/docs/
+
 theme:
   name: material
 
+  icon:
+    # https://squidfunk.github.io/mkdocs-material/setup/adding-a-git-repository/#repository-icon
+    repo: fontawesome/brands/github
+
   # https://squidfunk.github.io/mkdocs-material/setup/changing-the-colors/
   # カラーパレットの設定
-  palette: 
-    # Palette toggle for light mode
+  palette:
+    # ライトモード用のパレット
     - scheme: default
       toggle:
-        icon: material/brightness-7 
+        icon: material/brightness-7
         name: Switch to dark mode
 
-    # Palette toggle for dark mode
+    # ダークモード用のパレット
     - scheme: slate
       toggle:
         icon: material/brightness-4
@@ -28,11 +46,186 @@ theme:
   language: ja
 
   features:
+    # https://squidfunk.github.io/mkdocs-material/setup/setting-up-navigation/#instant-loading
+    # - navigation.instant
+
+    # https://squidfunk.github.io/mkdocs-material/setup/setting-up-navigation/#progress-indicator
+    # - navigation.instant.progress
+
+    # https://squidfunk.github.io/mkdocs-material/setup/setting-up-navigation/#anchor-tracking
+    # アンカートラッキングを有効にすると、アドレスバーのURLは、目次で強調表示されているアクティブなアンカーで自動的に更新されます。
+    - navigation.tracking
+
+    # https://squidfunk.github.io/mkdocs-material/setup/setting-up-navigation/#navigation-tabs
+    # タブが有効な場合、トップレベルのセクションは、上のビューポートのヘッダーの下のメニューレイヤーにレンダリングされますが、モバイルではそのまま残ります。
     - navigation.tabs
 
+    # https://squidfunk.github.io/mkdocs-material/setup/setting-up-navigation/#sticky-navigation-tabs
+    # スティッキータブを有効にすると、ナビゲーションタブはヘッダーの下でロックされ、下にスクロールしても常に表示されたままになります。
+    - navigation.tabs.sticky
+
+    # https://squidfunk.github.io/mkdocs-material/setup/setting-up-navigation/#navigation-sections
+    # セクションを有効にすると、トップレベルのセクションは、上のビューポートのサイドバーにグループとしてレンダリングされますが、モバイルではそのまま残ります。
+    # - navigation.sections
+
+    # https://squidfunk.github.io/mkdocs-material/setup/setting-up-navigation/#navigation-expansion
+    # 展開を有効にすると、左側のサイドバーはデフォルトですべての折りたたみ可能なサブセクションを展開するため、ユーザーはサブセクションを手動で開く必要はありません。
+    - navigation.expand
+
+    # https://squidfunk.github.io/mkdocs-material/setup/setting-up-navigation/#navigation-pruning
+    # プルーニングを有効にすると、表示されているナビゲーション項目のみがレンダリングされた HTML に含まれ、構築サイトのサイズが 33% 以上削減されます。
+    # - navigation.prune
+
+    # https://squidfunk.github.io/mkdocs-material/setup/setting-up-navigation/#section-index-pages
+    # セクション インデックス ページを有効にすると、ドキュメントをセクションに直接添付できるため、概要ページを提供する場合に特に便利です。
+    - navigation.indexes
+
+    # https://squidfunk.github.io/mkdocs-material/setup/setting-up-navigation/#back-to-top-button
+    # [トップに戻る] ボタンは、ユーザーが下にスクロールした後、再び上にスクロールし始めたときに表示できます。ヘッダーのすぐ下に中央に配置されます。
+    - navigation.top
+
+    # https://squidfunk.github.io/mkdocs-material/setup/setting-up-the-footer/#navigation
+    # フッターには、現在のページの前のページと次のページへのリンクを含めることができます。
+    - navigation.footer
+
+    # https://squidfunk.github.io/mkdocs-material/setup/setting-up-navigation/#anchor-following
+    - toc.follow
+
+    # https://squidfunk.github.io/mkdocs-material/setup/setting-up-navigation/#navigation-integration
+    # 目次のナビゲーション統合が有効な場合、常に左側のナビゲーションサイドバーの一部としてレンダリングされます。
+    # - toc.integrate
+
+    # https://squidfunk.github.io/mkdocs-material/setup/setting-up-site-search/#search-suggestions
+    # 検索候補が有効になっている場合、検索では、最後の単語の最も可能性の高い補完が表示されます。
+    - search.suggest
+
+    # https://squidfunk.github.io/mkdocs-material/setup/setting-up-site-search/#search-highlighting
+    # 検索の強調表示が有効になっていて、ユーザーが検索結果をクリックすると、リンクをたどった後、MkDocs の資料がすべての出現箇所を強調表示します。
+    - search.highlight
+
+    # https://squidfunk.github.io/mkdocs-material/setup/setting-up-site-search/#search-sharing
+    # 検索共有を有効にすると、リセットボタンの横に共有ボタンがレンダリングされ、現在の検索クエリと結果にディープリンクできます。
+    - search.share
+
+    # https://squidfunk.github.io/mkdocs-material/setup/adding-a-git-repository/#code-actions-edit-this-page
+    # リポジトリの URL が有効な GitHub、GitLab、または Bitbucket リポジトリを指している場合、
+    # MkDocs には edit_uri という設定があり、ドキュメントがホストされているサブフォルダーに解決されます。
+    # edit_uri が設定されている場合、コンテンツページの右上に編集アクションが表示されます。
+    - content.action.edit
+
+    # https://squidfunk.github.io/mkdocs-material/setup/adding-a-git-repository/#code-actions-view-source-of-this-page
+    # リポジトリの URL が有効な GitHub、GitLab、または Bitbucket リポジトリを指している場合、
+    # MkDocs には edit_uri という設定があり、ドキュメントがホストされているサブフォルダーに解決されます。
+    # edit_uri が設定されている場合、コンテンツページの右上にソースの表示アクションが表示されます。
+    - content.action.view
+
+    # https://squidfunk.github.io/mkdocs-material/reference/code-blocks/#code-copy-button
+    - content.code.copy
+
+plugins:
+  - search
+
+  # https://squidfunk.github.io/mkdocs-material/setup/adding-a-git-repository/#document-dates
+  # git-revision-date-localized プラグインは、各ページの下部に最終更新日とドキュメントの作成日を追加するためのサポートを追加します。
+  - git-revision-date-localized:
+      enabled: true
+      type: date # 表示する日付の形式: date, datetime, iso_date, iso_datetime, timeago
+      enable_creation_date: true
+
+  # https://squidfunk.github.io/mkdocs-material/setup/adding-a-git-repository/#document-contributors
+  # git-committers2 プラグインは、すべてのコントリビューターの GitHub アバターをレンダリングし、各ページの下部にある GitHub プロファイルにリンクします。
+  - git-committers:
+      repository: srymh/sample-mkdocs
+      branch: main
+
+  # - social
+  # - privacy
+  # - git-authors
+  # - offline
+
 markdown_extensions:
-  - footnotes
+  # https://squidfunk.github.io/mkdocs-material/setup/extensions/python-markdown/#abbreviations
+  - abbr
+
+  # https://squidfunk.github.io/mkdocs-material/setup/extensions/python-markdown/#admonition
+  - admonition
+
+  # https://squidfunk.github.io/mkdocs-material/setup/extensions/python-markdown/#attribute-lists
   - attr_list
+
+  # https://squidfunk.github.io/mkdocs-material/setup/extensions/python-markdown/#definition-lists
+  - def_list
+
+  # https://squidfunk.github.io/mkdocs-material/setup/extensions/python-markdown/#footnotes
+  - footnotes
+
+  # https://squidfunk.github.io/mkdocs-material/setup/extensions/python-markdown/#markdown-in-html
+  - md_in_html
+
+  # https://squidfunk.github.io/mkdocs-material/setup/extensions/python-markdown/#table-of-contents
+  - toc:
+      title: 目次
+      permalink: true
+      permalink_title: 固定リンク
+
+  - pymdownx.arithmatex:
+      generic: true
+
+  # https://squidfunk.github.io/mkdocs-material/setup/extensions/python-markdown-extensions/#betterem
+  # - pymdownx.betterem:
+  #     smart_enable: all
+
+  - pymdownx.caret
+
+  - pymdownx.mark
+
+  - pymdownx.tilde
+
+  # - pymdownx.critic
+
+  # https://squidfunk.github.io/mkdocs-material/setup/extensions/python-markdown-extensions/#details
+  - pymdownx.details
+
+  # https://squidfunk.github.io/mkdocs-material/setup/extensions/python-markdown-extensions/#emoji
   - pymdownx.emoji:
-      emoji_index: !!python/name:material.extensions.emoji.twemoji 
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+
+  # https://squidfunk.github.io/mkdocs-material/setup/extensions/python-markdown-extensions/#highlight
+  - pymdownx.highlight:
+      use_pygments: true
+      pygments_lang_class: true
+      auto_title: true
+      linenums: true
+      linenums_style: table
+      anchor_linenums: true
+      line_spans: __span
+
+  # - pymdownx.inlinehilite
+
+  # - pymdownx.keys
+  
+  # - pymdownx.smartsymbols
+
+  - pymdownx.tabbed:
+      alternate_style: true
+
+  - pymdownx.tasklist:
+      custom_checkbox: true
+
+extra:
+  # https://squidfunk.github.io/mkdocs-material/setup/setting-up-the-footer/#social-links
+  # ソーシャルリンクは、プロジェクトドキュメントのフッターの一部として、著作権表示の横に表示されます。
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/srymh/sample-mkdocs
+
+# https://squidfunk.github.io/mkdocs-material/setup/setting-up-the-footer/#copyright-notice
+# カスタム著作権バナーは、ソーシャルリンクの横に表示されるフッターの一部としてレンダリングできます。
+copyright: Copyright &copy; 2024 srymh
