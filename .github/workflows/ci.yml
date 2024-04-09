@@ -39,8 +39,8 @@ jobs:
           restore-keys: |
             mkdocs-material-
 
-      # `pip install mkdocs-material` コマンドを実行して、mkdocs-materialをインストールします。
-      - run: pip install mkdocs-material
+      # `pip install -r requirements.txt` コマンドを実行して、必要なPythonパッケージをインストールします。
+      - run: pip install -r requirements.txt
 
       # `mkdocs gh-deploy --force` コマンドを実行して、ドキュメンテーションをGitHub Pagesにデプロイします。
       - run: mkdocs gh-deploy --force
