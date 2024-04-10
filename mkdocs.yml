@@ -13,6 +13,9 @@ repo_name: sample-mkdocs
 # リポジトリの URL が有効な GitHub、GitLab、または Bitbucket リポジトリを指している場合、MkDocs には edit_uri という設定があり、ドキュメントがホストされているサブフォルダーに解決されます。
 edit_uri: edit/main/docs/
 
+extra_css:
+  - "styles/extra.css"
+
 theme:
   name: material
 
@@ -25,12 +28,16 @@ theme:
   palette:
     # ライトモード用のパレット
     - scheme: default
+      primary: white
+      accent: cyan
       toggle:
         icon: material/brightness-7
         name: Switch to dark mode
 
     # ダークモード用のパレット
     - scheme: slate
+      primary: black
+      accent: amber
       toggle:
         icon: material/brightness-4
         name: Switch to light mode
