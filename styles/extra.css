@@ -1,0 +1,8 @@
+/* scheme=default && primary=white の場合を一部上書き */
+[data-md-color-scheme="default"][data-md-color-primary="white"] {
+    --md-typeset-a-color: #22909e;
+}
+/* scheme=slate && primary=black の場合を一部上書き */
+[data-md-color-scheme="slate"][data-md-color-primary="black"] {
+    --md-typeset-a-color: #ffd500;
+}
